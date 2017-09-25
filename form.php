@@ -1,6 +1,27 @@
 <?php
 if(isset($_POST['submit'])){
-	echo "Form di submit.";
+
+	$name = array("alexwawo", "maria", "johndoe", "janedoe", "nathan");
+
+	$minimum = 5;
+	$maximum = 10;
+
+	$username = $_POST['username'];
+	$password = $_POST['password'];
+
+	if(strlen($username) < $minimum){
+		echo "Username harus memiliki panjang 5 atau lebih";
+	}
+
+	if(strlen($username) > $maximum){
+		echo "Username tidak boleh lebih panjang dari 10";
+	}
+
+	if(!in_array($username, $name)){
+		echo "Maaf, akses ditolak";
+	}else{
+		echo "Selamat datang";
+	}
 }
 ?>
 
@@ -12,12 +33,12 @@ if(isset($_POST['submit'])){
 <body>
 	
 <form action="form.php" method="post">
-	<input type="text" placeholder="Enter Username" />
-	<input type="password" placeholder="Enter Password" />
+	<input type="text" name="username" placeholder="Enter Username" />
+	<input type="password" name="password" placeholder="Enter Password" />
 	<br />
 	<input type="submit" name="submit" />
 </form>
 
 
 </body>
-</html>
+</html> 
