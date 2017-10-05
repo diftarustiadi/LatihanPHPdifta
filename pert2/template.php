@@ -16,6 +16,7 @@
  <div id="sidebar">
  	<a href="template.php?page=mahasiswa">Mahasiswa</a>
  	<a href="template.php?page=dosen">Dosen</a>
+	<a href="template.php?page=matkul">Mata Kuliah</a>
  </div>
  
  <div id="konten">INI ADALAH KONTEN
