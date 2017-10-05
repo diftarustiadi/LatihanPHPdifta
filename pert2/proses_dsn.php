@@ -8,7 +8,7 @@
  			VALUES('$_POST[kode_dosen]', '$_POST[nama]')";
  }else if($_GET['action'] == 'edit'){
  	//2. Query 
- 	$query = = "UPDATE mahasiswa 
+ 	$query = = "UPDATE dosen 
  				SET kode_dosen = '$_POST[kode_dosen]',
  					nama = '$_POST[nama]',
  				WHERE id = $_POST[id]";
