@@ -17,7 +17,7 @@
  </div>
  <div id="konten">
  	<h2>Tambah Kontak</h2>
- 	<form action="" method="post">
+ 		<form action="proses_tambah_kontak.php" method="post">
  		Nama:
  		<input type="text" name="nama" />
  		<br />
