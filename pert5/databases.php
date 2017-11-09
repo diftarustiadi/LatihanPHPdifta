@@ -37,13 +37,13 @@
 			while($row = mysqli_fetch_row($result)) {
  				// output data from each row
  				var_dump($row);
-				echo "";
+				echo "<hr/>";
 			}
  		?>
 			
  		<?php
  			//4. Release returned data
- +			mysqli_free_result($result);
+ 			mysqli_free_result($result);
  		?>
  		
  

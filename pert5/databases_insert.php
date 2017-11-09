@@ -14,6 +14,14 @@
  ?>
  
  <?php
+ // Often these are form values in $_POST
+ 	$menu_name = "Todays Widget Trivia";
+ 	$position = (int) 4;
+ 	$visible = (int) 1;
+ 
+ 	// Escape all strings
+ 	$menu_name = mysqli_real_escape_String($connection, $menu_name);
+	
  	//2. Perform database query
  	$query = "INSERT INTO subjects (";
  	$query .= " menu_name, position, visible";
