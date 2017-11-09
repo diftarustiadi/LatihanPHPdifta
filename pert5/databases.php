@@ -31,16 +31,25 @@
  		<title>Databases</title>
  	</head>
  	<body>
- 		
+			<ul>
  		<?php
  		// 3. Use returned data (if any)
  		while($row = mysqli_fetch_row($result)) {
- 			// output data from each row
- 			var_dump($row);
- 			echo "<hr />"
- 		}
+ 			while($subject = mysqli_fetch_assoc($result)) {
+  				// output data from each row
+ 				var_dump($row);
+				echo "";
  		?>
- 
+			<li> 
+ 			<?php
+ 					echo $subject["menu_name"];
+ 			?>
+ 		</li>
+ 		<?php
+ 			}
+ 		?>
+ 		
+ 	</ul>
  		<?php
  		// 4. Release returnedd data
  		mysqli_free_result($result);
