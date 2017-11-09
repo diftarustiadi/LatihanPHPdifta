@@ -13,53 +13,40 @@
 	}
 ?>
 <?php
- 	// 2. Perform database query
- 	$query = "INSERT INTO subjects (";
- 	$query .= " menu_name, position, visible";
- 	$query .= ") VALUES (";
- 	$query .= " '{$menu_name}', {$position}, {visible}";
- 	$query .= ")";
+ 	//2. Perform database query
+ 	$query = "SELECT * ";
+ 	$query .= "FROM subjects ";
+ 	$query .= "WHERE visible = 1 ";
+ 	$query .= "ORDER by position ASC";
  	$result = mysqli_query($connection, $query);
- 	if ($result){
- 		// Success
- 		// redirect to ...
- 		echo "SUCCESS!";
-	}else {
- 		// Failure
- 		// $message = "Subject creation failed"
- 		die("Database query failed." . mysqli_error($connection));
+ 	if (!$result)
+ 	{
+ 		die("Database query failed.");
  	}
  ?>
  
  <!DOCTYPE html>
- <html lang="en">
+ <html>
  	<head>
- 		<title>Databases</title>
+ 		<title> Database </title>
  	</head>
  	<body>
 			<ul>
  		<?php
- 		// 3. Use returned data (if any)
- 		while($row = mysqli_fetch_row($result)) {
- 			while($subject = mysqli_fetch_assoc($result)) {
-  				// output data from each row
+ 		//3. Use returned data (if any)
+			while($row = mysqli_fetch_row($result)) {
+ 				// output data from each row
  				var_dump($row);
 				echo "";
+			}
  		?>
-			<li> 
- 			<?php
- 					echo $subject["menu_name"];
- 			?>
- 		</li>
+			
  		<?php
- 			}
+ 			//4. Release returned data
+ +			mysqli_free_result($result);
  		?>
  		
- 	</ul>
- 		<?php
- 		// 4. Release returnedd data
- 		mysqli_free_result($result);
- 		?>
+ 
  
  	</body>
  </html>
