@@ -14,14 +14,20 @@
 ?>
 <?php
  	// 2. Perform database query
- 	$query = "SELECT * ";
- 	$query .= "FROM subjects ";
- 	$query .= "WHERE visible = 1";
- 	$query .= "ORDER BY position ASC"
- 
+ 	$query = "INSERT INTO subjects (";
+ 	$query .= " menu_name, position, visible";
+ 	$query .= ") VALUES (";
+ 	$query .= " '{$menu_name}', {$position}, {visible}";
+ 	$query .= ")";
  	$result = mysqli_query($connection, $query);
- 	if (!$result) {
- 		die("Database query failed");
+ 	if ($result){
+ 		// Success
+ 		// redirect to ...
+ 		echo "SUCCESS!";
+	}else {
+ 		// Failure
+ 		// $message = "Subject creation failed"
+ 		die("Database query failed." . mysqli_error($connection));
  	}
  ?>
  
